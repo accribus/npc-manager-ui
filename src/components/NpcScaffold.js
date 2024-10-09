@@ -1,13 +1,41 @@
-import React from 'react';
-import NpcCard from './NpcCard';
-const NpcScaffold = () => {
-    return (
-      <div className="npc-scaffold">
-        <h2>npc scaffold placeholder</h2>
-        <p>npc card placeholder</p>
-        <NpcCard></NpcCard>
-      </div>
-    );
-  };
+// import React from 'react';
+// import NpcRow from './NpcRow';
+
+
+// const NpcScaffold = () => {
+//     return (
+//       <div className="npc-scaffold">
+//         <h2>NPC List</h2>
+//         <NpcRow></NpcRow>
+//       </div>
+//     );
+//   };
   
-  export default NpcScaffold;
+//   export default NpcScaffold;
+
+// src/components/NpcScaffold.js
+
+
+import React from 'react';
+import NpcRow from './NpcRow';
+
+const NpcScaffold = ({ npcs }) => {
+  // Split the NPCs array into groups of three
+  const rows = [];
+  for (let i = 0; i < npcs.length; i += 3) {
+    rows.push(npcs.slice(i, i + 3));
+  }
+
+  console.log("rows",rows);
+
+  return (
+    <div className="npc-scaffold">
+      <h2>NPC List</h2>
+      {rows.map((npcGroup, index) => (
+        <NpcRow key={index} npcs={npcGroup} />
+      ))}
+    </div>
+  );
+};
+
+export default NpcScaffold;

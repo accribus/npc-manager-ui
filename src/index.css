@@ -50,7 +50,7 @@
     cursor: pointer;
   }
   
-  .npc-list {
+  .npc-scaffold {
     display: flex;
     flex-direction: column;
     align-items: center;
