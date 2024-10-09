@@ -1,15 +1,9 @@
 import React from 'react';
+import NpcScaffold from './components/NpcScaffold';
 
 function App() {
   return (
-    <div className="npc-manager-ui">
-      <header>
-        <h1>NPC Manager UI</h1>
-      </header>
-      <main>
-        <p>Welcome to the NPC Manager!</p>
-      </main>
-    </div>
+    <NpcScaffold>scaffold</NpcScaffold>
   );
 }
 
