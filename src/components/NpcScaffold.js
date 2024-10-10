@@ -1,21 +1,3 @@
-// import React from 'react';
-// import NpcRow from './NpcRow';
-
-
-// const NpcScaffold = () => {
-//     return (
-//       <div className="npc-scaffold">
-//         <h2>NPC List</h2>
-//         <NpcRow></NpcRow>
-//       </div>
-//     );
-//   };
-  
-//   export default NpcScaffold;
-
-// src/components/NpcScaffold.js
-
-
 import React from 'react';
 import NpcRow from './NpcRow';
 
