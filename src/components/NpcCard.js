@@ -5,17 +5,22 @@ const traits = [];
 
 // addTrait = ({trait}) => {
 //   traits.push(trait);
-//   console.log("trait",trait);
+//   console.log("addTrait",trait);
 //   //      <button onClick={addTrait}>Add New Trait</button>
 
 // }
+
+const handleClick = () => {
+  console.log('The button was clicked!');
+};
+
 
 
 const NpcCard = ({ npc }) => {
   return (
     <div className="npc-card">
       <h2>NPC: {npc.name}</h2>
-      <button onClick={console.log('test')}>Add New Trait</button>
+      <button onClick={handleClick}>Add New Trait</button>
       <NpcTrait trait={npc.trait} ></NpcTrait>
     </div>
   );
