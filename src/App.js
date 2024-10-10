@@ -5,7 +5,10 @@ import './index.css';
 
 const App = () => {
   const [npcs, setNpcs] = useState([
-    { name: 'Goblin', health: 30, strength: 5, agility: 10 },
+    { name: 'Goblin', health: 30, strength: 5, agility: 10, trait:{
+        name: "test trait name",
+        rating: 4
+    } },
     { name: 'Orc', health: 60, strength: 8, agility: 6 },
     { name: 'Troll', health: 90, strength: 12, agility: 4 },
     { name: 'Elf', health: 40, strength: 6, agility: 12 },
