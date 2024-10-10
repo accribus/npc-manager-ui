@@ -3,15 +3,16 @@ import NpcTrait from './NpcTrait';
 
 const traits = [];
 
-// addTrait = ({trait}) => {
-//   traits.push(trait);
-//   console.log("addTrait",trait);
-//   //      <button onClick={addTrait}>Add New Trait</button>
-
-// }
-
+let counter = 0;
 const addTrait = () => {
   console.log('The add trait button was clicked!');
+  
+  traits.push({
+    name:"trait" + counter,
+    rating: 5
+  });
+  counter++;
+  console.log("trait array", traits);
 };
 
 
