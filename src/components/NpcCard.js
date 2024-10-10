@@ -10,8 +10,8 @@ const traits = [];
 
 // }
 
-const handleClick = () => {
-  console.log('The button was clicked!');
+const addTrait = () => {
+  console.log('The add trait button was clicked!');
 };
 
 
@@ -20,7 +20,7 @@ const NpcCard = ({ npc }) => {
   return (
     <div className="npc-card">
       <h2>NPC: {npc.name}</h2>
-      <button onClick={handleClick}>Add New Trait</button>
+      <button onClick={addTrait}>Add New Trait</button>
       <NpcTrait trait={npc.trait} ></NpcTrait>
     </div>
   );
