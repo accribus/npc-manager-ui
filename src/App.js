@@ -7,15 +7,18 @@ const App = () => {
   const [npcs, setNpcs] = useState([
     { name: 'Elf', trait:{
         name: "elf trait",
-        rating: 4
+        rating: 4,
+        traits: []
     }  },
     { name: 'Dwarf', trait:{
         name: "dwarf trait",
-        rating: 4
+        rating: 4,
+        traits: []
     }  },
     { name: 'Dragon', trait:{
         name: "dragon trait",
-        rating: 4
+        rating: 4,
+        traits: []
     }  },
   ]);
 
@@ -31,7 +34,7 @@ const App = () => {
     <div className="App">
       <h1>NPC Character Stats</h1>
       <button onClick={addNpc}>Add New NPC</button>
-      <NpcScaffold npcs={npcs} />
+      <NpcScaffold npcs={npcs} setNpcs={setNpcs}/>
     </div>
   );
 };

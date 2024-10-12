@@ -1,67 +1,59 @@
+// src/components/NpcCard.js
 import React, { useState } from 'react';
 import NpcTrait from './NpcTrait';
 import TraitModal from './TraitModal';
 
-
-const NpcCard = ({ npc }) => {
-  // Local state for traits specific to this NpcCard
+const NpcCard = ({ npc, npcs, setNpcs }) => {
   const [traits, setTraits] = useState([]);
   const [notes, setNotes] = useState('');
-  const [isModalOpen, setModalOpen] = useState(false); // State for modal visibility
-  const [counter, setCounter] = useState(0);
+  const [isModalOpen, setModalOpen] = useState(false);
 
-  // Function to handle change and validate input for notes
   const handleNotesChange = (e) => {
-    const value = e.target.value;
-    setNotes(value);
+    setNotes(e.target.value);
   };
 
-  // Function to show the modal
   const openModal = () => setModalOpen(true);
-
-  // Function to hide the modal
   const closeModal = () => setModalOpen(false);
 
-  // Function to add a new trait to the traits array
-  const addTrait = () => {
-    openModal();
-    console.log('The add trait button was clicked!');
-    const newTrait = {
-      name: "trait" + counter,
-      rating: 5,
-    };
-
-    setCounter((counter) => counter + 1);
-
-    // Update the traits state with the new trait
-    setTraits([...traits, newTrait]);
-    console.log("trait array", traits);
-    console.log("counter", counter);
+  const addTrait = (newTrait) => {
+    // Update the specific NPC's traits
+    const updatedNpcs = npcs.map((n) => {
+      if (n.name === npc.name) {
+        return { ...n, trait: newTrait, notes: notes };
+      }
+      return n;
+    });
+    console.log('trait added: ', npcs);
+    setNpcs(updatedNpcs);
   };
 
   return (
     <div className="npc-card">
       <h2>NPC: {npc.name}</h2>
-      <button onClick={addTrait}>Add New Trait</button>
+      <button onClick={openModal}>Add New Trait</button>
+
       <div>
-        {traits.map((trait, index) => (
-          <NpcTrait key={index} trait={trait} />
-        ))}
+        <NpcTrait trait={npc.trait} />
       </div>
+
       <div>
         <label>
           Notes:
           <textarea
             value={notes}
-            onChange={handleNotesChange} // Corrected this line
+            onChange={handleNotesChange}
             rows="4"
             cols="50"
-            placeholder="Enter alphanumeric notes"
+            placeholder="Enter notes about this NPC"
           />
         </label>
       </div>
+
       {isModalOpen && (
-        <TraitModal onClose={closeModal} onSave={addTrait} />
+        <TraitModal
+          onClose={closeModal}
+          onSave={addTrait}
+        />
       )}
     </div>
   );

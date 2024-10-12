@@ -1,7 +1,7 @@
 import React from 'react';
 import NpcRow from './NpcRow';
 
-const NpcScaffold = ({ npcs }) => {
+const NpcScaffold = ({ npcs, setNpcs }) => {
   // Split the NPCs array into groups of three
   const rows = [];
   for (let i = 0; i < npcs.length; i += 3) {
@@ -13,8 +13,8 @@ const NpcScaffold = ({ npcs }) => {
   return (
     <div className="npc-scaffold">
       <h2>NPC List</h2>
-      {rows.map((npcGroup, index) => (
-        <NpcRow key={index} npcs={npcGroup} />
+      {rows.map((npcs, index) => (
+        <NpcRow key={index} npcs={npcs} setNpcs={setNpcs} />
       ))}
     </div>
   );

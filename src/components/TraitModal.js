@@ -4,11 +4,12 @@ import React, { useState } from 'react';
 const TraitModal = ({ onClose, onSave }) => {
   const [name, setName] = useState('');
   const [rating, setRating] = useState(0);
+  const [notes, setNotes] = useState('');
 
   const handleSave = () => {
-    // Pass the trait data back to the parent component
-    onSave({ name, rating });
-    onClose(); // Close the modal after saving
+    const newTrait = { name, rating, notes }; // Include notes in the new trait object
+    onSave(newTrait);
+    onClose();
   };
 
   return (
@@ -21,6 +22,7 @@ const TraitModal = ({ onClose, onSave }) => {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            placeholder="Enter trait name"
           />
         </label>
         <label>
@@ -29,6 +31,19 @@ const TraitModal = ({ onClose, onSave }) => {
             type="number"
             value={rating}
             onChange={(e) => setRating(Number(e.target.value))}
+            min="0"
+            max="10"
+            placeholder="Rate from 1 to 10"
+          />
+        </label>
+        <label>
+          Notes:
+          <textarea
+            value={notes}
+            onChange={(e) => setNotes(e.target.value)}
+            rows="4"
+            cols="50"
+            placeholder="Enter notes about this trait"
           />
         </label>
         <button onClick={handleSave}>Save</button>
