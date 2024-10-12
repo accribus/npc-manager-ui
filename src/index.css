@@ -62,11 +62,78 @@
     justify-content: center;
     gap: 16px;
   }
-  
+
   .npc-card {
     border: 1px solid #ccc;
     padding: 16px;
     border-radius: 8px;
     width: 200px;
+    background-color: #fff; /* Ensure background consistency */
+    display: flex;
+    flex-direction: column; /* Stack elements inside the card vertically */
+    gap: 12px; /* Add spacing between the elements */
+  }
+
+  .npc-card textarea {
+    width: 100%; /* Make textarea take full width of the card */
+    padding: 8px; /* Add some internal padding */
+    border: 1px solid #ccc; /* Match border styling with .npc-card */
+    border-radius: 4px; /* Smooth corners */
+    resize: none; /* Disable resizing */
+    font-family: Arial, Helvetica, sans-serif; /* Match the body font */
+    font-size: 14px; /* Adjust font size */
   }
   
+  /* index.css */
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 300px;
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="number"],
+.modal-content textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.modal-content textarea {
+  resize: none;
+}
+
+.modal-actions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
