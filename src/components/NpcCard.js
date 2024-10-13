@@ -1,6 +1,6 @@
 // src/components/NpcCard.js
 import React, { useState } from 'react';
-import NpcTrait from './NpcTrait';
+import NpcTraits from './NpcTraits';
 import TraitModal from './TraitModal';
 
 const NpcCard = ({ npc, npcs, setNpcs }) => {
@@ -33,7 +33,7 @@ const NpcCard = ({ npc, npcs, setNpcs }) => {
       <button onClick={openModal}>Add New Trait</button>
 
       <div>
-        <NpcTrait data={npc.data} />
+        <NpcTraits traits={npc.traits} />
       </div>
 
       <div>

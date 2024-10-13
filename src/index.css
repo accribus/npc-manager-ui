@@ -131,6 +131,40 @@
   justify-content: space-between;
 }
 
+.npc-trait {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f9f9f9; /* Light background for the trait section */
+  border: 1px solid #ddd; /* Subtle border around trait section */
+  border-radius: 6px;
+}
+
+.npc-trait p {
+  font-weight: bold;
+  color: #6200ea; /* Accent color for the title */
+  margin-bottom: 8px;
+}
+
+.npc-trait ul {
+  list-style-type: none; /* Remove bullet points */
+  padding-left: 0; /* Remove default padding */
+}
+
+.npc-trait li {
+  font-size: 14px;
+  padding: 6px 0; /* Space between each trait */
+  border-bottom: 1px solid #ddd; /* Divider between traits */
+}
+
+.npc-trait li:last-of-type {
+  border-bottom: none; /* Remove last item's bottom border */
+}
+
+.npc-trait strong {
+  color: #333; /* Bold trait name in primary text color */
+}
+
+
 button {
   padding: 8px 12px;
   font-size: 14px;
