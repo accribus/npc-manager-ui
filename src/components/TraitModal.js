@@ -2,14 +2,14 @@
 import React, { useState } from 'react';
 
 const TraitModal = ({ onClose, onSave }) => {
-  const [name, setName] = useState('');
-  const [rating, setRating] = useState(0);
-  const [notes, setNotes] = useState('');
+  const [traitName, setTraitName] = useState('');
+  const [traitRating, setTraitRating] = useState(0);
+  const [traitNotes, setTraitNotes] = useState('');
 
   const handleSave = () => {
-    const newTrait = { name, rating, notes }; 
-    onSave(newTrait);
-    onClose();
+    const newTrait = { traitName, traitRating, notes: traitNotes }; // Match NPC trait structure
+    onSave(newTrait); // Pass the new trait back to NpcCard
+    onClose(); // Close the modal
   };
 
   return (
@@ -20,8 +20,8 @@ const TraitModal = ({ onClose, onSave }) => {
           Name:
           <input
             type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={traitName}
+            onChange={(e) => setTraitName(e.target.value)}
             placeholder="Enter trait name"
           />
         </label>
@@ -29,8 +29,8 @@ const TraitModal = ({ onClose, onSave }) => {
           Rating:
           <input
             type="number"
-            value={rating}
-            onChange={(e) => setRating(Number(e.target.value))}
+            value={traitRating}
+            onChange={(e) => setTraitRating(Number(e.target.value))}
             min="0"
             max="10"
             placeholder="Rate from 1 to 10"
@@ -39,8 +39,8 @@ const TraitModal = ({ onClose, onSave }) => {
         <label>
           Notes:
           <textarea
-            value={notes}
-            onChange={(e) => setNotes(e.target.value)}
+            value={traitNotes}
+            onChange={(e) => setTraitNotes(e.target.value)}
             rows="4"
             cols="50"
             placeholder="Enter notes about this trait"

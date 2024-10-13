@@ -4,9 +4,8 @@ import NpcTraits from './NpcTraits';
 import TraitModal from './TraitModal';
 
 const NpcCard = ({ npc, npcs, setNpcs }) => {
-  const [traits, setTraits] = useState([]);
-  const [notes, setNotes] = useState('');
   const [isModalOpen, setModalOpen] = useState(false);
+  const [notes, setNotes] = useState(npc.notes || '');
 
   const handleNotesChange = (e) => {
     setNotes(e.target.value);
@@ -16,15 +15,16 @@ const NpcCard = ({ npc, npcs, setNpcs }) => {
   const closeModal = () => setModalOpen(false);
 
   const addTrait = (newTrait) => {
-    // Update the specific NPC's traits
-    const updatedNpcs = npcs.map((n) => {
-      if (n.name === npc.name) {
-        return { ...n, trait: newTrait, notes: notes };
+    // Update the specific NPC's traits array
+    const updatedNpcs = npcs.map((currentNpc) => {
+      if (currentNpc.name === npc.name) {
+        const updatedTraits = [...currentNpc.traits, newTrait]; // Append new trait
+        return { ...currentNpc, traits: updatedTraits }; // Update traits array
       }
-      return n;
+      return currentNpc;
     });
-    console.log('trait added: ', npcs);
-    setNpcs(updatedNpcs);
+
+    setNpcs(updatedNpcs);  // Update the npcs array with modified NPC
   };
 
   return (
@@ -52,7 +52,7 @@ const NpcCard = ({ npc, npcs, setNpcs }) => {
       {isModalOpen && (
         <TraitModal
           onClose={closeModal}
-          onSave={addTrait}
+          onSave={addTrait} // Pass the addTrait function to save new trait
         />
       )}
     </div>
