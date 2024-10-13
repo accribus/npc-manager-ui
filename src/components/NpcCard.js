@@ -33,7 +33,7 @@ const NpcCard = ({ npc, npcs, setNpcs }) => {
       <button onClick={openModal}>Add New Trait</button>
 
       <div>
-        <NpcTrait trait={npc.trait} />
+        <NpcTrait data={npc.data} />
       </div>
 
       <div>

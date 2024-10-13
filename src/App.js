@@ -5,17 +5,17 @@ import './index.css';
 
 const App = () => {
   const [npcs, setNpcs] = useState([
-    { name: 'Elf', trait:{
+    { name: 'Elf', data:{
         name: "elf trait",
         rating: 4,
         traits: []
     }  },
-    { name: 'Dwarf', trait:{
+    { name: 'Dwarf', data:{
         name: "dwarf trait",
         rating: 4,
         traits: []
     }  },
-    { name: 'Dragon', trait:{
+    { name: 'Dragon', data:{
         name: "dragon trait",
         rating: 4,
         traits: []
@@ -23,9 +23,10 @@ const App = () => {
   ]);
 
   const addNpc = () => {
-    const newNpc = { name: 'New NPC', health: 50, strength: 7, agility: 5, trait:{
-        name: "generic trait",
-        rating: 8
+    const newNpc = { name: 'New NPC', data:{
+        name: "noob",
+        rating: 55,
+        traits: []
     }  };
     setNpcs([...npcs, newNpc]);
   };

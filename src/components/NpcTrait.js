@@ -1,10 +1,10 @@
 import React from 'react';
 
-const NpcTrait = ({ trait }) => {
+const NpcTrait = ({ data }) => {
   return (
     <div className="npc-trait">
-      <p>Trait: {trait.name}</p>
-      <p>Rating: {trait.rating}</p>
+      <p>Trait: {data.name}</p>
+      <p>Rating: {data.rating}</p>
     </div>
   );
 };
