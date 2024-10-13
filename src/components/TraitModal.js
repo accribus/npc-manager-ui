@@ -7,7 +7,7 @@ const TraitModal = ({ onClose, onSave }) => {
   const [notes, setNotes] = useState('');
 
   const handleSave = () => {
-    const newTrait = { name, rating, notes }; // Include notes in the new trait object
+    const newTrait = { name, rating, notes }; 
     onSave(newTrait);
     onClose();
   };

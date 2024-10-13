@@ -9,18 +9,21 @@ const App = () => {
       traits: [{
         traitName: "magic",
         traitRating: 3,
+        notes: "",
       }],
     },
     { name: 'Dwarf',
         traits: [{
             traitName: "history",
             traitRating: 3,
+            notes: "",
           }],
     },
     { name: 'Dragon',
     traits: [{
         traitName: "breath weapon",
         traitRating: 6,
+        notes: "",
       }],
     },
   ]);
@@ -30,6 +33,7 @@ const App = () => {
         traits: [{
           traitName: "music",
           traitRating: 2,
+          notes: "",
         }]
       };
     setNpcs([...npcs, newNpc]);
