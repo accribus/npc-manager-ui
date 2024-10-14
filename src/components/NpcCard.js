@@ -1,5 +1,7 @@
 // src/components/NpcCard.js
 import React, { useState } from 'react';
+
+
 import NpcTraits from './NpcTraits';
 import TraitModal from './TraitModal';
 
@@ -14,7 +16,13 @@ const NpcCard = ({ npc, npcs, setNpcs }) => {
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
 
+  
+
   const addTrait = (newTrait) => {
+
+    //tests:
+    console.log('new trait added: ', newTrait);
+
     // Update the specific NPC's traits array
     const updatedNpcs = npcs.map((currentNpc) => {
       if (currentNpc.name === npc.name) {
@@ -23,6 +31,8 @@ const NpcCard = ({ npc, npcs, setNpcs }) => {
       }
       return currentNpc;
     });
+
+    console.log('new trait added, updatedNpcs: ', updatedNpcs);
 
     setNpcs(updatedNpcs);  // Update the npcs array with modified NPC
   };

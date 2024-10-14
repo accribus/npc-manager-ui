@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useEffect } from 'react';
 import NpcRow from './NpcRow';
 
 const NpcScaffold = ({ npcs, setNpcs }) => {
@@ -9,6 +9,10 @@ const NpcScaffold = ({ npcs, setNpcs }) => {
   }
 
   console.log("rows",rows);
+  //for testing
+  useEffect(() => {
+    console.log('npcs have been updated:', npcs);
+  }, [npcs]); // This will log the npcs array every time it is updated
 
   return (
     <div className="npc-scaffold">

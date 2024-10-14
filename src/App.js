@@ -7,20 +7,20 @@ const App = () => {
   const [npcs, setNpcs] = useState([
     { name: 'Elf',
       traits: [{
-        traitName: "magic",
+            traitName: "magic",
+            traitRating: 3,
+            notes: "",
+      }],
+    },
+    { name: 'Dwarf',
+      traits: [{
+        traitName: "history",
         traitRating: 3,
         notes: "",
       }],
     },
-    { name: 'Dwarf',
-        traits: [{
-            traitName: "history",
-            traitRating: 3,
-            notes: "",
-          }],
-    },
     { name: 'Dragon',
-    traits: [{
+      traits: [{
         traitName: "breath weapon",
         traitRating: 6,
         notes: "",
