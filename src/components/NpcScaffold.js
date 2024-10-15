@@ -11,7 +11,7 @@ const NpcScaffold = ({ npcs, setNpcs }) => {
   console.log("rows",rows);
   //for testing
   useEffect(() => {
-    console.log('npcs have been updated:', npcs);
+    console.log('npcs have been updated (useEffect):', npcs);
   }, [npcs]); // This will log the npcs array every time it is updated
 
   return (

@@ -16,26 +16,38 @@ const NpcCard = ({ npc, npcs, setNpcs }) => {
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
 
+  const onSave = (newTrait) => {
+    const updatedNpcs = npcs.map((currentNpc) => {
+      if (currentNpc.id === npc.id) {
+        // Create a new traits array by appending the new trait immutably
+        const updatedTraits = [...currentNpc.traits, { ...newTrait }];
+        
+        // Return a new NPC object with the updated traits, ensuring immutability
+        return { ...currentNpc, traits: updatedTraits };
+      }
+      return currentNpc; // Unmodified NPC
+    });
   
-
-  const addTrait = (newTrait) => {
-
-    //tests:
-    console.log('new trait added: ', newTrait);
-
-    // Update the specific NPC's traits array
+    setNpcs(updatedNpcs); // Update state immutably
+  };
+  
+  
+  
+  
+  const addTrait2 = (newTrait) => {
     const updatedNpcs = npcs.map((currentNpc) => {
       if (currentNpc.name === npc.name) {
-        const updatedTraits = [...currentNpc.traits, newTrait]; // Append new trait
-        return { ...currentNpc, traits: updatedTraits }; // Update traits array
+        const updatedTraits = [...currentNpc.traits, newTrait];
+        return { ...currentNpc, traits: updatedTraits };
       }
       return currentNpc;
     });
-
-    console.log('new trait added, updatedNpcs: ', updatedNpcs);
-
-    setNpcs(updatedNpcs);  // Update the npcs array with modified NPC
+  
+    // Update the state with the updated npcs array
+    setNpcs(updatedNpcs);  // Removed the logging here
   };
+
+  
 
   return (
     <div className="npc-card">
@@ -62,7 +74,7 @@ const NpcCard = ({ npc, npcs, setNpcs }) => {
       {isModalOpen && (
         <TraitModal
           onClose={closeModal}
-          onSave={addTrait} // Pass the addTrait function to save new trait
+          onSave={onSave} // Pass the addTrait function to save new trait
         />
       )}
     </div>
